@@ -1,23 +1,10 @@
-######## Phil's dev VM boxstarter script ########
-
 ###############
 #### notes ####
 ###############
 
-### running remotely on VM fails on Configuring CredSSP settings
-## check http://blogs.technet.com/b/heyscriptingguy/archive/2012/12/30/understanding-powershell-remote-management.aspx
-
-### running locally on VM
-## if connected, it will show login screen after restart, but is still working
-
 ### other notes
 ## Boxstarter repeats the _entire_ script after restart. For already-installed packages, Chocolatey will take a couple seconds each to verify. This can get tedious, so consider putting packages that require a reboot near the beginning of the script.
 ## Boxstarter automatically disables windows update so you don't need to do that at the beginning of the script.
-
-### last run
-## completed successfully except for GFW
-## required 5 reboots
-## took 3.25 hours
 ## still need to "Update and Restart" afterwards - and to ensure UAC is enabled
 
 ######################################
@@ -38,12 +25,6 @@ Disable-UAC
 
 cinst google-chrome-x64
 # NOTE: pins itself
-
-cinst VisualStudio2013Ultimate -InstallArguments "/Features:'Blend SQL WebTools Win8SDK WindowsPhone80"
-
-cinst vs2013.4
-# NOTE: appears to fail install, but it's not really failing - it's just doing things that require a reboot. Reboots 3x before installation is complete.
-
 cinst dotnet3.5
 
 #######################
@@ -51,14 +32,10 @@ cinst dotnet3.5
 #######################
 
 cinst 7zip.install
-cinst filezilla
-cinst Recuva
-
 cinst sysinternals
 # NOTE: by default, installs to C:\tools\sysinternals
 
-cinst windirstat
-cinst virtualclonedrive
+
 
 cinst lockhunter
 # NOTE: opens webpage after install
