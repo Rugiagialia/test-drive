@@ -23,9 +23,29 @@ Disable-UAC
 #### requires reboot ####
 #########################
 
-cinst google-chrome-x64
+cinst googlechrome
 # NOTE: pins itself
 cinst dotnet3.5
+
+##Reboot ?
+cinst jre8
+cinst skype
+cinst firefox -packageParameters "l=en-US"
+#cinst flashplayeractivex (Win XP, 7 Only)
+cinst flashplayerplugin
+cinst adobeshockwaveplayer
+cinst adobeair
+cinst cccp
+cinst adobereader
+cinst cutepdf
+cinst dropbox
+cinst googledrive
+cinst owncloud-client
+cinst itunes
+cinst iperf3
+cinst airdroid
+cinst crystaldiskinfo
+cinst office365business
 
 #######################
 #### general utils ####
@@ -34,52 +54,8 @@ cinst dotnet3.5
 cinst 7zip.install
 cinst sysinternals
 # NOTE: by default, installs to C:\tools\sysinternals
-
-
-
-cinst lockhunter
+#cinst lockhunter
 # NOTE: opens webpage after install
-
-######################
-#### general apps ####
-######################
-
-cinst SublimeText3
-
-cinst keepass.install
-
-###################
-#### dev utils ####
-###################
-
-cinst fiddler4
-
-cinst autohotkey
-
-cinst githubforwindows
-# NOTE: installs asynchronously, boxstarter script continues running. What happens if Boxstarter performs reboot while this is still installing?
-# NOTE: install fails
-# TODO: figure out how to pin GHFW
-
-cinst tortoisesvn
-cinst winmerge
-cinst NuGet.CommandLine
-
-##################
-#### dev apps ####
-##################
-
-cinst scriptcs
-cinst stylecop
-cinst ankhsvn
-
-cinst resharper -version 8.2.3000.5176
-# TODO: keep updating latest version 8.x, since you can't specify to upgrade to the latest version of 8.x
-
-cinst mssqlservermanagementstudio2014express -version 1.0.6
-# TODO: remove -version 1.0.6 once approved
-# NOTE: this takes up 700mb because it doesn't delete the installer
-del "C:\ProgramData\chocolatey\lib\MsSqlServerManagementStudio2014Express.1.0.6\tools\SQLManagementStudio_x64_ENU.exe"
 
 #################################
 #### NOW get windows updates ####
@@ -103,15 +79,14 @@ del C:\vc_red.*
 
 ### do this here so that it only happens once (shouldn't reboot any more at this point)
 
-Enable-RemoteDesktop
 Set-StartScreenOptions -EnableBootToDesktop -EnableDesktopBackgroundOnStart -EnableShowStartOnActiveScreen
 Set-WindowsExplorerOptions -EnableShowFileExtensions -EnableShowHiddenFilesFoldersDrives -DisableShowProtectedOSFiles
-TZUTIL /s "Eastern Standard Time"
+TZUTIL /s "FLE Standard Time"
 
-Install-ChocolateyPinnedTaskBarItem "${env:ProgramFiles}\Sublime Text 3\sublime_text.exe"
-Install-ChocolateyPinnedTaskBarItem "${env:ProgramFiles(x86)}\Fiddler2\Fiddler.exe"
-Install-ChocolateyPinnedTaskBarItem "${env:ProgramFiles(x86)}\Microsoft Visual Studio 12.0\Common7\IDE\devenv.exe"
-Install-ChocolateyPinnedTaskBarItem "${env:ProgramFiles(x86)}\Microsoft SQL Server\120\Tools\Binn\ManagementStudio\Ssms.exe"
+#Install-ChocolateyPinnedTaskBarItem "${env:ProgramFiles}\Sublime Text 3\sublime_text.exe"
+#Install-ChocolateyPinnedTaskBarItem "${env:ProgramFiles(x86)}\Fiddler2\Fiddler.exe"
+#Install-ChocolateyPinnedTaskBarItem "${env:ProgramFiles(x86)}\Microsoft Visual Studio 12.0\Common7\IDE\devenv.exe"
+#Install-ChocolateyPinnedTaskBarItem "${env:ProgramFiles(x86)}\Microsoft SQL Server\120\Tools\Binn\ManagementStudio\Ssms.exe"
 
 ################################
 #### restore disabled stuff ####
