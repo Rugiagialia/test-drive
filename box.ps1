@@ -46,6 +46,7 @@ cinst iperf3
 cinst airdroid
 cinst crystaldiskinfo
 cinst office365business
+cinst listary
 
 #######################
 #### general utils ####
