@@ -78,6 +78,7 @@ cinst -y 7zip.install
 #cinst processhacker.portable
 #cinst kcleaner
 #cinst prey
+#cinst perfview
 
 #region Tools
 cinst -y iperf3
