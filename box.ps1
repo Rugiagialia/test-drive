@@ -92,7 +92,7 @@ del C:\vc_red.*
 #### Windows Options ####
 
 Set-StartScreenOptions -EnableBootToDesktop -EnableDesktopBackgroundOnStart -EnableShowStartOnActiveScreen
-Set-WindowsExplorerOptions -EnableShowFileExtensions -EnableShowHiddenFilesFoldersDrives -DisableShowProtectedOSFiles
+Set-WindowsExplorerOptions -EnableShowFileExtensions -EnableShowFullPathInTitleBar
 Set-TaskbarOptions -Size Large -Lock -Dock Bottom -Combine Full
 TZUTIL /s "FLE Standard Time"
 
