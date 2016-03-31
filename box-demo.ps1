@@ -1,4 +1,4 @@
-# Commandline: START http://boxstarter.org/package/nr/url?https://raw.githubusercontent.com/Rugiagialia/test-drive/master/box-demo.ps1
+# Commandline: START http://boxstarter.org/package/url?https://raw.githubusercontent.com/Rugiagialia/test-drive/master/box-demo.ps1
 
 # The following settings will ask you for your windows password and then
 # successfuly reboot the machine everytime it needs to. After Boxstarter is
@@ -21,9 +21,8 @@ if ( ( ( Get-ItemProperty -path $taskbarButtonsRegKey ).TaskbarGlomLevel ) -Ne 2
 Set-StartScreenOptions -EnableBootToDesktop -EnableDesktopBackgroundOnStart -EnableShowStartOnActiveScreen
 Set-WindowsExplorerOptions -EnableShowFileExtensions -EnableShowFullPathInTitleBar
 Set-TaskbarOptions -Size Large -Lock -Dock Bottom
+Write-BoxstarterMessage "Setting Time Zone to FLE Standard Time"
 TZUTIL /s "FLE Standard Time"
-# Reboot if needed
-if (Test-PendingReboot) { Invoke-Reboot }
 #endregion
 
 # Disable annoying asking
@@ -44,9 +43,8 @@ Disable-UAC
 
 #region Software
 cinst -y googlechrome
-# Reboot if needed
+# Reboot needed
 cinst -y adblockpluschrome
-if (Test-PendingReboot) { Invoke-Reboot }
 cinst -y jre8
 cinst -y skype
 cinst -y firefox -packageParameters "l=en-US"
@@ -59,6 +57,28 @@ cinst -y cutepdf
 cinst -y 7zip.install
 #endregion
 
+#region SoftwareToConsider
+#cinst unchecky
+#cinst silverlight
+#cinst cdburnerxp
+#cinst windirstat
+#cinst foxitreader
+#cinst spotify
+#cinst cpu-z
+#cinst picasa
+#cinst owncloud-client
+#cinst adblockplus-firefox
+#cinst adblockplusie
+#cinst sudo
+#cinst gpg4win-light
+#cinst windowsrepair
+#cinst clamwin (Antivirus)
+#cinst mousewithoutborders
+#cinst ultradefrag
+#cinst processhacker.portable
+#cinst kcleaner
+#cinst prey
+
 #region Tools
 cinst -y iperf3
 cinst -y crystaldiskinfo
@@ -67,7 +87,6 @@ cinst -y sysinternals
 
 #region Windows Update
 Install-WindowsUpdate -acceptEula
-if (Test-PendingReboot) { Invoke-Reboot }
 #region
 
 Enable-UAC
