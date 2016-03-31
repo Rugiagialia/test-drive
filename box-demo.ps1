@@ -7,8 +7,6 @@ $Boxstarter.RebootOk=$true    # Allow reboots?
 $Boxstarter.NoPassword=$false # Is this a machine with no login password?
 $Boxstarter.AutoLogin=$true   # Save my password securely and auto-login after a reboot
 
-# Disable annoying asking
-Disable-UAC
 # Allow running PowerShell scripts
 Update-ExecutionPolicy Unrestricted
 
@@ -27,6 +25,9 @@ TZUTIL /s "FLE Standard Time"
 # Reboot if needed
 if (Test-PendingReboot) { Invoke-Reboot }
 #endregion
+
+# Disable annoying asking
+Disable-UAC
 
 #region InstallChoco
   cinst -y chocolatey
