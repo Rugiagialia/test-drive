@@ -29,6 +29,7 @@ Update-ExecutionPolicy Unrestricted
 
 #region InstallChoco
   cinst chocolatey
+  if (Test-PendingReboot) { Invoke-Reboot }
 #endregion
 
 #region DotNetAndPowershell
