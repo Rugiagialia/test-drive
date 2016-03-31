@@ -7,7 +7,7 @@
 
 #### make sure we're not bothered ####
 Disable-UAC
-#if (Test-PendingReboot) { Invoke-Reboot }
+if (Test-PendingReboot) { Invoke-Reboot }
 
 # Allow running PowerShell scripts
 Update-ExecutionPolicy Unrestricted
