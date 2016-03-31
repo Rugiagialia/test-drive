@@ -19,8 +19,8 @@ Disable-UAC
 Update-ExecutionPolicy Unrestricted
 
 # Install Windows Update and reboot
-Install-WindowsUpdate -acceptEula
-if (Test-PendingReboot) { Invoke-Reboot }
+#Install-WindowsUpdate -acceptEula
+#if (Test-PendingReboot) { Invoke-Reboot }
 
 # Install software (reboot required)
 
@@ -31,6 +31,7 @@ if (Test-PendingReboot) { Invoke-Reboot }
   cinst DotNet4.0
   cinst DotNet4.5
   cinst DotNet3.5
+  if (Test-PendingReboot) { Invoke-Reboot }
 #endregion
 
 #region Software
