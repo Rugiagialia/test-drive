@@ -48,11 +48,11 @@ cinst cutepdf
 cinst dropbox
 cinst googledrive
 cinst owncloud-client
-cinst itunes
+#cinst itunes
 cinst iperf3
-cinst airdroid
+#cinst airdroid
 cinst crystaldiskinfo
-cinst office365business
+#cinst office365business
 cinst listary
 
 #######################
