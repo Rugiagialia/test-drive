@@ -1,4 +1,4 @@
-# Commandline: START http://boxstarter.org/package/nr/url?https://raw.githubusercontent.com/Rugiagialia/test-drive/master/box.ps1
+# Commandline: START http://boxstarter.org/package/url?https://raw.githubusercontent.com/Rugiagialia/test-drive/master/box.ps1
 
 # The following settings will ask you for your windows password and then
 # successfuly reboot the machine everytime it needs to. After Boxstarter is
