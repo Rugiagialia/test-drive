@@ -13,8 +13,10 @@ $Boxstarter.NoPassword=$false # Is this a machine with no login password?
 $Boxstarter.AutoLogin=$true   # Save my password securely and auto-login after a reboot
 
 #### make sure we're not bothered ####
-
 Disable-UAC
+
+# Allow running PowerShell scripts
+Update-ExecutionPolicy Unrestricted
 
 # Install Windows Update and reboot
 Install-WindowsUpdate -acceptEula
