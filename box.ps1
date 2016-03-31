@@ -5,18 +5,18 @@
 ## Boxstarter automatically disables windows update so you don't need to do that at the beginning of the script.
 ## still need to "Update and Restart" afterwards - and to ensure UAC is enabled
 
+#### make sure we're not bothered ####
+Disable-UAC
+
+# Allow running PowerShell scripts
+Update-ExecutionPolicy Unrestricted
+
 # The following settings will ask you for your windows password and then
 # successfuly reboot the machine everytime it needs to. After Boxstarter is
 # done autologin won't be enabled.
 $Boxstarter.RebootOk=$true    # Allow reboots?
 $Boxstarter.NoPassword=$false # Is this a machine with no login password?
 $Boxstarter.AutoLogin=$true   # Save my password securely and auto-login after a reboot
-
-#### make sure we're not bothered ####
-Disable-UAC
-
-# Allow running PowerShell scripts
-Update-ExecutionPolicy Unrestricted
 
 # Install Windows Update and reboot
 #Install-WindowsUpdate -acceptEula
@@ -25,6 +25,10 @@ Update-ExecutionPolicy Unrestricted
 # Install software (reboot required)
 
 # Install software (no reboot)
+
+#region InstallChoco
+  cinst chocolatey
+#endregion
 
 #region DotNetAndPowershell
   cinst PowerShell
