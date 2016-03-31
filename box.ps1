@@ -1,4 +1,4 @@
-# Commandline: START http://boxstarter.org/package/nr/url?https://raw.githubusercontent.com/skkeeper/boxstarter-scripts/master/windows10_devmachine.ps1
+# Commandline: START http://boxstarter.org/package/nr/url?https://raw.githubusercontent.com/Rugiagialia/test-drive/master/box.ps1
 
 ### other notes
 ## Boxstarter repeats the _entire_ script after restart. For already-installed packages, Chocolatey will take a couple seconds each to verify. This can get tedious, so consider putting packages that require a reboot near the beginning of the script.
@@ -15,12 +15,6 @@ $Boxstarter.AutoLogin=$true   # Save my password securely and auto-login after a
 #### make sure we're not bothered ####
 
 Disable-UAC
-
-#### Windows Options ####
-
-Set-StartScreenOptions -EnableBootToDesktop -EnableDesktopBackgroundOnStart -EnableShowStartOnActiveScreen
-Set-WindowsExplorerOptions -EnableShowFileExtensions -EnableShowHiddenFilesFoldersDrives -DisableShowProtectedOSFiles
-TZUTIL /s "FLE Standard Time"
 
 # Install Windows Update and reboot
 Install-WindowsUpdate -acceptEula
@@ -71,12 +65,10 @@ cinst sysinternals
 #cinst lockhunter
 # NOTE: opens webpage after install
 
-#################################
-#### NOW get windows updates ####
-#################################
-
-Enable-MicrosoftUpdate
-Install-WindowsUpdate -AcceptEula
+# Make sure some windows update didn't creep on us after installing all
+# those apps
+Install-WindowsUpdate -acceptEula
+if (Test-PendingReboot) { Invoke-Reboot }
 
 #################
 #### cleanup ####
@@ -92,9 +84,11 @@ del C:\vc_red.*
 ###############################
 
 ### do this here so that it only happens once (shouldn't reboot any more at this point)
+#### Windows Options ####
 
 Set-StartScreenOptions -EnableBootToDesktop -EnableDesktopBackgroundOnStart -EnableShowStartOnActiveScreen
 Set-WindowsExplorerOptions -EnableShowFileExtensions -EnableShowHiddenFilesFoldersDrives -DisableShowProtectedOSFiles
+Set-TaskbarOptions -Size Large -Lock -Dock Top -Combine Full
 TZUTIL /s "FLE Standard Time"
 
 #Install-ChocolateyPinnedTaskBarItem "${env:ProgramFiles}\Sublime Text 3\sublime_text.exe"
