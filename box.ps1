@@ -109,10 +109,10 @@ Enable-UAC
 #########################
 
 ### Teracopy
-start http://codesector.com/teracopy
+#start http://codesector.com/teracopy
 
 ### markdownpad 2.x 
-start http://markdownpad.com/download.html
+#start http://markdownpad.com/download.html
 
 ## MS Office 2013
 # link to ISO?
