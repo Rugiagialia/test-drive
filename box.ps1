@@ -88,7 +88,7 @@ del C:\vc_red.*
 
 Set-StartScreenOptions -EnableBootToDesktop -EnableDesktopBackgroundOnStart -EnableShowStartOnActiveScreen
 Set-WindowsExplorerOptions -EnableShowFileExtensions -EnableShowHiddenFilesFoldersDrives -DisableShowProtectedOSFiles
-Set-TaskbarOptions -Size Large -Lock -Dock Top -Combine Full
+Set-TaskbarOptions -Size Large -Lock -Dock Bottom -Combine Full
 TZUTIL /s "FLE Standard Time"
 
 #Install-ChocolateyPinnedTaskBarItem "${env:ProgramFiles}\Sublime Text 3\sublime_text.exe"
