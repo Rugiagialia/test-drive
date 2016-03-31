@@ -44,13 +44,13 @@ Disable-UAC
 #region Software
 cinst -y googlechrome
 # Reboot if needed
-if (Test-PendingReboot) { Invoke-Reboot }
 cinst -y adblockpluschrome
+if (Test-PendingReboot) { Invoke-Reboot }
 cinst -y jre8
 cinst -y skype
 cinst -y firefox -packageParameters "l=en-US"
 cinst -y flashplayerplugin
-cinst -y adobeshockwaveplayer
+# cinst -y adobeshockwaveplayer (failing to install)
 cinst -y adobeair
 cinst -y cccp
 cinst -y adobereader
