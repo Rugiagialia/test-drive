@@ -94,5 +94,5 @@ Install-WindowsUpdate -acceptEula
 del "C:\Users\Public\Desktop\acrobat*.lnk"
 
 Enable-UAC
-Invoke-Reboot
+#Invoke-Reboot
 #done
