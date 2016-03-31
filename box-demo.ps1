@@ -1,4 +1,4 @@
-# Commandline: START http://boxstarter.org/package/url?https://raw.githubusercontent.com/Rugiagialia/test-drive/master/box-demo.ps1
+# Commandline: START http://boxstarter.org/package/nr/url?https://raw.githubusercontent.com/Rugiagialia/test-drive/master/box-demo.ps1
 
 # The following settings will ask you for your windows password and then
 # successfuly reboot the machine everytime it needs to. After Boxstarter is
@@ -24,6 +24,7 @@ Set-StartScreenOptions -EnableBootToDesktop -EnableDesktopBackgroundOnStart -Ena
 Set-WindowsExplorerOptions -EnableShowFileExtensions -EnableShowFullPathInTitleBar
 Set-TaskbarOptions -Size Large -Lock -Dock Bottom
 TZUTIL /s "FLE Standard Time"
+if (Test-PendingReboot) { Invoke-Reboot }
 #endregion
 
 #region InstallChoco
@@ -39,6 +40,7 @@ TZUTIL /s "FLE Standard Time"
 
 #region Software
 cinst -y googlechrome
+if (Test-PendingReboot) { Invoke-Reboot }
 cinst -y adblockpluschrome
 cinst -y jre8
 cinst -y skype
@@ -60,6 +62,7 @@ cinst -y sysinternals
 
 #region Windows Update
 Install-WindowsUpdate -acceptEula
+if (Test-PendingReboot) { Invoke-Reboot }
 #region
 
 Enable-UAC
