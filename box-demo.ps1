@@ -15,7 +15,7 @@ Update-ExecutionPolicy Unrestricted
 #region Windows Options
 Set-StartScreenOptions -EnableBootToDesktop -EnableDesktopBackgroundOnStart -EnableShowStartOnActiveScreen
 Set-WindowsExplorerOptions -EnableShowFileExtensions -EnableShowFullPathInTitleBar
-Set-TaskbarOptions -Size Large -Lock -Dock Bottom -Combine Full
+Set-TaskbarOptions -Size Large -Lock -Dock Bottom
 TZUTIL /s "FLE Standard Time"
 #endregion
 
