@@ -1,5 +1,12 @@
 # Commandline: START http://boxstarter.org/package/nr/url?https://raw.githubusercontent.com/Rugiagialia/test-drive/master/box.ps1
 
+# The following settings will ask you for your windows password and then
+# successfuly reboot the machine everytime it needs to. After Boxstarter is
+# done autologin won't be enabled.
+$Boxstarter.RebootOk=$true    # Allow reboots?
+$Boxstarter.NoPassword=$false # Is this a machine with no login password?
+$Boxstarter.AutoLogin=$true   # Save my password securely and auto-login after a reboot
+
 ### other notes
 ## Boxstarter repeats the _entire_ script after restart. For already-installed packages, Chocolatey will take a couple seconds each to verify. This can get tedious, so consider putting packages that require a reboot near the beginning of the script.
 ## Boxstarter automatically disables windows update so you don't need to do that at the beginning of the script.
@@ -7,17 +14,10 @@
 
 #### make sure we're not bothered ####
 Disable-UAC
-if (Test-PendingReboot) { Invoke-Reboot }
+#if (Test-PendingReboot) { Invoke-Reboot }
 
 # Allow running PowerShell scripts
 Update-ExecutionPolicy Unrestricted
-
-# The following settings will ask you for your windows password and then
-# successfuly reboot the machine everytime it needs to. After Boxstarter is
-# done autologin won't be enabled.
-$Boxstarter.RebootOk=$true    # Allow reboots?
-$Boxstarter.NoPassword=$false # Is this a machine with no login password?
-$Boxstarter.AutoLogin=$true   # Save my password securely and auto-login after a reboot
 
 # Install Windows Update and reboot
 #Install-WindowsUpdate -acceptEula
