@@ -20,25 +20,24 @@ Disable-UAC
 Install-WindowsUpdate -acceptEula
 if (Test-PendingReboot) { Invoke-Reboot }
 
-######################
-#### dependencies ####
-######################
+# Install software (reboot required)
 
-## nothing right now
+# Install software (no reboot)
 
-#########################
-#### requires reboot ####
-#########################
+#region DotNetAndPowershell
+  cinst PowerShell
+  cinst DotNet4.0
+  cinst DotNet4.5
+  cinst DotNet3.5
+#endregion
 
+#region Software
+cinst 7zip.install
 cinst googlechrome
-# NOTE: pins itself
-cinst dotnet3.5
-
-##Reboot ?
+cinst adblockpluschrome
 cinst jre8
 cinst skype
 cinst firefox -packageParameters "l=en-US"
-#cinst flashplayeractivex (Win XP, 7 Only)
 cinst flashplayerplugin
 cinst adobeshockwaveplayer
 cinst adobeair
@@ -48,19 +47,25 @@ cinst cutepdf
 cinst dropbox
 cinst googledrive
 cinst owncloud-client
-#cinst itunes
+#endregion
+
+#region Tools
 cinst iperf3
-#cinst airdroid
 cinst crystaldiskinfo
-#cinst office365business
 cinst listary
+cinst sysinternals
+#endregion
+
+#cinst flashplayeractivex (Win XP, 7 Only)
+#cinst office365business
+#cinst airdroid
+#cinst itunes
 
 #######################
 #### general utils ####
 #######################
 
-cinst 7zip.install
-cinst sysinternals
+
 # NOTE: by default, installs to C:\tools\sysinternals
 #cinst lockhunter
 # NOTE: opens webpage after install
