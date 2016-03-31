@@ -35,6 +35,7 @@ Disable-UAC
 
 #region DotNetAndPowershell
   cinst -y PowerShell
+  cinst -y powershell-packagemanagement
   cinst -y DotNet4.0
   cinst -y DotNet4.5
   cinst -y DotNet4.6.1
