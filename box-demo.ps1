@@ -37,6 +37,7 @@ Disable-UAC
   cinst -y PowerShell
   cinst -y DotNet4.0
   cinst -y DotNet4.5
+  cinst -y DotNet4.6.1
   cinst -y DotNet3.5
 #endregion
 
