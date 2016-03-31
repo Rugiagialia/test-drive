@@ -90,6 +90,9 @@ cinst -y sysinternals
 Install-WindowsUpdate -acceptEula
 #region
 
+#region CleanUp
+del "C:\Users\Public\Desktop\adobe*.lnk"
+
 Enable-UAC
 Invoke-Reboot
 #done
