@@ -92,7 +92,12 @@ Install-WindowsUpdate -acceptEula
 
 #region CleanUp
 del "C:\Users\Public\Desktop\acrobat*.lnk"
+#region
 
 Enable-UAC
-#Invoke-Reboot
+#region ToDo
+#load default user hive and change windows settings/screens/etc. 
+#region
+
+
 #done
