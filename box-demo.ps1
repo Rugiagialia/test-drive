@@ -24,6 +24,7 @@ Set-StartScreenOptions -EnableBootToDesktop -EnableDesktopBackgroundOnStart -Ena
 Set-WindowsExplorerOptions -EnableShowFileExtensions -EnableShowFullPathInTitleBar
 Set-TaskbarOptions -Size Large -Lock -Dock Bottom
 TZUTIL /s "FLE Standard Time"
+# Reboot if needed
 if (Test-PendingReboot) { Invoke-Reboot }
 #endregion
 
@@ -40,6 +41,7 @@ if (Test-PendingReboot) { Invoke-Reboot }
 
 #region Software
 cinst -y googlechrome
+# Reboot if needed
 if (Test-PendingReboot) { Invoke-Reboot }
 cinst -y adblockpluschrome
 cinst -y jre8
