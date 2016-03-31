@@ -27,35 +27,35 @@ TZUTIL /s "FLE Standard Time"
 #endregion
 
 #region InstallChoco
-  cinst chocolatey
+  cinst -y chocolatey
 #endregion
 
 #region DotNetAndPowershell
-  cinst PowerShell
-  cinst DotNet4.0
-  cinst DotNet4.5
-  cinst DotNet3.5
+  cinst -y PowerShell
+  cinst -y DotNet4.0
+  cinst -y DotNet4.5
+  cinst -y DotNet3.5
 #endregion
 
 #region Software
-cinst googlechrome
-cinst adblockpluschrome
-cinst jre8
-cinst skype
-cinst firefox -packageParameters "l=en-US"
-cinst flashplayerplugin
-cinst adobeshockwaveplayer
-cinst adobeair
-cinst cccp
-cinst adobereader
-cinst cutepdf
-cinst 7zip.install
+cinst -y googlechrome
+cinst -y adblockpluschrome
+cinst -y jre8
+cinst -y skype
+cinst -y firefox -packageParameters "l=en-US"
+cinst -y flashplayerplugin
+cinst -y adobeshockwaveplayer
+cinst -y adobeair
+cinst -y cccp
+cinst -y adobereader
+cinst -y cutepdf
+cinst -y 7zip.install
 #endregion
 
 #region Tools
-cinst iperf3
-cinst crystaldiskinfo
-cinst sysinternals
+cinst -y iperf3
+cinst -y crystaldiskinfo
+cinst -y sysinternals
 #endregion
 
 #region Windows Update
