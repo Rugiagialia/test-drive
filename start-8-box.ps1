@@ -31,6 +31,7 @@ REG LOAD HKU\DEFAULT C:\Users\Default\NTUSER.DAT
 Write-BoxstarterMessage "Making changes to Windows Explorer"
 REG ADD "HKU\DEFAULT\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v SeparateProcess /t REG_DWORD /d 1 /f
 REG ADD "HKU\DEFAULT\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v TaskbarSizeMove /t REG_DWORD /d 0 /f
+REG ADD "HKU\DEFAULT\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v TaskbarGlomLevel /t REG_DWORD /d 1 /f
 REG ADD "HKU\DEFAULT\Software\Microsoft\Windows\CurrentVersion\Explorer\AutoComplete" /v "Append Completion" /t REG_SZ /d YES /f
 REG ADD "HKU\DEFAULT\AppEvents\Schemes\Apps\Explorer\Navigating\.Current" /ve /t REG_EXPAND_SZ /d "" /f
 Write-BoxstarterMessage "Windows 8 navigation settings"
