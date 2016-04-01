@@ -26,7 +26,6 @@ TZUTIL /s "FLE Standard Time"
 #endregion
 
 #region DefaultUser Hack
-@ECHO OFF
 REM Load the default profile hive
 SET HKEY=HKU\Default
 REG LOAD %HKEY% %SystemDrive%\Users\Default\NTUSER.DAT
