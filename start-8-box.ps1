@@ -29,8 +29,8 @@ TZUTIL /s "FLE Standard Time"
 Write-BoxstarterMessage "Loading the default profile hive"
 REG LOAD HKLM\DEFAULT C:\Users\Default\NTUSER.DAT
 Write-BoxstarterMessage "Making changes to Windows Explorer"
-#REG ADD "%HKEY%\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v SeparateProcess /t REG_DWORD /d 1 /f
-#REG ADD "%HKEY%\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v TaskbarSizeMove /t REG_DWORD /d 0 /f
+REG ADD "HKLM\DEFAULT\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v SeparateProcess /t REG_DWORD /d 1 /f
+REG ADD "HKLM\DEFAULT\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v TaskbarSizeMove /t REG_DWORD /d 0 /f
 REG UNLOAD HKLM\DEFAULT
 Write-BoxstarterMessage "Default profile hive unloaded"
 #endregion
