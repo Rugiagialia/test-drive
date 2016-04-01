@@ -10,21 +10,6 @@ $Boxstarter.AutoLogin=$true   # Save my password securely and auto-login after a
 # Allow running PowerShell scripts
 Update-ExecutionPolicy Unrestricted
 
-#region Windows Options
-Write-BoxstarterMessage "Setting Taskbar buttons to Never Combine..."
-$taskbarButtonsRegKey = 'hkcu:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
-if ( ( ( Get-ItemProperty -path $taskbarButtonsRegKey ).TaskbarGlomLevel ) -Ne 2 )
-{
-    Set-ItemProperty -Path $taskbarButtonsRegKey -Name "TaskbarGlomLevel" -Value 00000002
-    Invoke-Reboot
-}
-Set-StartScreenOptions -EnableBootToDesktop -EnableDesktopBackgroundOnStart -EnableShowStartOnActiveScreen
-Set-WindowsExplorerOptions -EnableShowFileExtensions -EnableShowFullPathInTitleBar
-Set-TaskbarOptions -Size Large -Lock -Dock Bottom
-Write-BoxstarterMessage "Setting Time Zone to FLE Standard Time"
-TZUTIL /s "FLE Standard Time"
-#endregion
-
 # Disable annoying asking
 Disable-UAC
 
@@ -89,6 +74,21 @@ cinst -y sysinternals
 #region Windows Update
 Install-WindowsUpdate -acceptEula
 #region
+
+#region Windows Options
+Write-BoxstarterMessage "Setting Taskbar buttons to Never Combine..."
+$taskbarButtonsRegKey = 'hkcu:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+if ( ( ( Get-ItemProperty -path $taskbarButtonsRegKey ).TaskbarGlomLevel ) -Ne 2 )
+{
+    Set-ItemProperty -Path $taskbarButtonsRegKey -Name "TaskbarGlomLevel" -Value 00000002
+    Invoke-Reboot
+}
+Set-StartScreenOptions -EnableBootToDesktop -EnableDesktopBackgroundOnStart -EnableShowStartOnActiveScreen
+Set-WindowsExplorerOptions -EnableShowFileExtensions -EnableShowFullPathInTitleBar
+Set-TaskbarOptions -Size Large -Lock -Dock Bottom
+Write-BoxstarterMessage "Setting Time Zone to FLE Standard Time"
+TZUTIL /s "FLE Standard Time"
+#endregion
 
 #region CleanUp
 del "C:\Users\Public\Desktop\acrobat*.lnk"
