@@ -27,14 +27,11 @@ TZUTIL /s "FLE Standard Time"
 
 #region DefaultUser Hack
 Write-BoxstarterMessage "Loading the default profile hive"
-$HKEY=@'
-HKU\Default
-'@
-REG LOAD $HKEY C:\Users\Default\NTUSER.DAT
+REG LOAD HKLM\DEFAULT C:\Users\Default\NTUSER.DAT
 Write-BoxstarterMessage "Making changes to Windows Explorer"
 #REG ADD "%HKEY%\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v SeparateProcess /t REG_DWORD /d 1 /f
 #REG ADD "%HKEY%\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v TaskbarSizeMove /t REG_DWORD /d 0 /f
-REG UNLOAD $HKEY
+REG UNLOAD HKLM\DEFAULT
 Write-BoxstarterMessage "Default profile hive unloaded"
 #endregion
 
