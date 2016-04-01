@@ -26,14 +26,14 @@ TZUTIL /s "FLE Standard Time"
 #endregion
 
 #region DefaultUser Hack
-REM Load the default profile hive
+Write-BoxstarterMessage "Loading the default profile hive"
 SET HKEY=HKU\Default
 REG LOAD %HKEY% %SystemDrive%\Users\Default\NTUSER.DAT
-REM Windows Explorer
+Write-BoxstarterMessage "Making changes to Windows Explorer"
 REG ADD "%HKEY%\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v SeparateProcess /t REG_DWORD /d 1 /f
 REG ADD "%HKEY%\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v TaskbarSizeMove /t REG_DWORD /d 0 /f
-REM Unload the default profile hive
 REG UNLOAD %HKEY%
+Write-BoxstarterMessage "Default profile hive unloaded"
 #endregion
 
 # Disable annoying asking
