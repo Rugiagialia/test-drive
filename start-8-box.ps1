@@ -106,7 +106,7 @@ cinst -y sysinternals
 #endregion
 
 #region Windows Update
-#Install-WindowsUpdate -acceptEula
+Install-WindowsUpdate -acceptEula
 #region
 
 #region CleanUp
