@@ -97,6 +97,7 @@ cinst -y 7zip.install
 #cinst kcleaner
 #cinst prey
 #cinst perfview
+#cinst doublecmd
 
 #region Tools
 cinst -y iperf3
