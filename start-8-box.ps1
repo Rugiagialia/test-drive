@@ -75,6 +75,16 @@ cinst -y cutepdf
 cinst -y 7zip.install
 #endregion
 
+#region 7-zip config
+REG ADD "HKLM\SOFTWARE\Classes\7zFM.exe\DefaultIcon" /t REG_SZ /d "C:\Program Files\7-Zip\7z.dll,1" /f
+#.rar
+Install-ChocolateyFileAssociation ".rar" "$($env:programfiles)\7-Zip\7zFM.exe"
+#.zip
+Install-ChocolateyFileAssociation ".zip" "$($env:programfiles)\7-Zip\7zFM.exe"
+#.7z
+Install-ChocolateyFileAssociation ".7z" "$($env:programfiles)\7-Zip\7zFM.exe"
+#endregion
+
 #region SoftwareToConsider
 #cinst unchecky
 #cinst silverlight
