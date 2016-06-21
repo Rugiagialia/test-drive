@@ -49,8 +49,8 @@ cinst -y 7zip.install
 
 #region SoftwareToConsider
 #cinst unchecky
-#cinst silverlight
-#cinst cdburnerxp
+cinst -y silverlight
+cinst -y cdburnerxp
 #cinst windirstat
 #cinst foxitreader
 #cinst spotify
@@ -71,13 +71,13 @@ cinst -y 7zip.install
 #cinst perfview
 
 #region Tools
-cinst -y iperf3
+#cinst -y iperf3
 cinst -y crystaldiskinfo
-cinst -y sysinternals
+#cinst -y sysinternals
 #endregion
 
 #region Windows Update
-Install-WindowsUpdate -acceptEula
+#Install-WindowsUpdate -acceptEula
 #region
 
 #region CleanUp
